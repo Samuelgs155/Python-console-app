@@ -1,6 +1,6 @@
 # Gestor de clientes-productos-ventas
 
-# autor: Samuel García Saboya
+# autor: Samuel García
 
 # Estructura
 tienda/
