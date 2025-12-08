@@ -159,7 +159,7 @@ def borrrar_cliente():
         print("No se pudo borrar, cliente no encontrado.")
 
 def registrar_venta():
-    from models import registrar_venta, buscar_producto_por_id, buscar_cliente_por_email    
+    from models import registrar_venta, buscar_producto_por_id, buscar_cliente_por_id    
     from models import listar_productos
     
     try:
@@ -171,12 +171,14 @@ def registrar_venta():
         producto_id = int(input("ID del producto: "))
         productoSeleccionado = buscar_producto_por_id(producto_id)
         if not productoSeleccionado:
-            print("No se pudo registrar la venta, producto no encontrado.")   
+            print("No se pudo registrar la venta, producto no encontrado.")  
+            return 
         
-        cliente_email = input("Email del cliente: ")
-        clienteDB = buscar_cliente_por_email(cliente_email)
+        cliente_id = int(input("ID del cliente: "))
+        clienteDB = buscar_cliente_por_id(cliente_id)
         if not clienteDB:
             print("No se pudo registrar la venta, cliente no encontrado.")
+            return
                 
         cantidad = int(input("Cantidad: "))
         cliente_id = clienteDB[0]
@@ -195,6 +197,7 @@ def listar_ventas():
     ventas = listar_ventas()   
     if len(ventas) == 0:
         print("No hay ventas registradas.")   
+        return
 
     page_size = 10
     it = iter(ventas)      

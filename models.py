@@ -368,3 +368,23 @@ def buscar_venta_por_id(venta_id):
         return None
     finally:
         conn.close()
+
+def buscar_cliente_por_id(cliente_id):
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT * FROM clientes WHERE id = ?", (cliente_id,))
+        cliente = cursor.fetchone()
+
+        if cliente:
+            return cliente
+        else:
+            print("No se encontró un cliente con ese ID.")
+            return None
+
+    except sqlite3.Error as e:
+        print("Error buscando cliente por ID:", e)
+        return None
+    finally:
+        conn.close()

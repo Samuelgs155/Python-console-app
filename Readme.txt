@@ -1,6 +1,6 @@
 # Gestor de clientes-productos-ventas
 
-# autor: Samuel García Saboya
+# autor: Samuel García
 
 # Estructura
 tienda/
@@ -43,4 +43,17 @@ docker ps
 # Se puede arrancar la aplicación desde Visual Studio
 # Opción 2
 # Dentro de la carpeta donde está el fichero Samuel_Garcia_app.py, ejecutar este comando "python .\Samuel_Garcia_app.py" en la Terminal o en un CMD
+
+# Ejecutar el docker-compose
+# docker-compose up -d
+# Entra al contenedor de la app
+# docker exec -it tienda_app bash
+# Ejecuta tu app manualmente
+# python Samuel_Garcia_app.py
+
+
+docker tag tienda_app samuelgs15/python_tienda_terminal_app:1.0
+docker push samuelgs15/python_tienda_terminal_app:1.0
+
+
 
